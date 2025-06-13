@@ -7,9 +7,9 @@ def ver_tareas(tareas):
         for i, t in enumerate(tareas):
             if t["completada"]:
                 estado = "✅"
-            else:
+            else: 
                 estado = "❌"
-            print(f"{i+1}. {t['nombre']} - {estado}")
+            print(f"{i+1}. {t['nombre']} - {estado}") 
             
 def agregar_tareas(tareas):
     nombre = input("Escribe el nombre de la nueva tarea: ")

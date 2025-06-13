@@ -11,7 +11,7 @@ def pedir_entero(mensaje):
             
 def guardar_tareas(tareas):
     with open("tareas.json", "w") as archivo:
-        json.dump(tareas, archivo)
+        json.dump(tareas, archivo)  
         
 def cargar_tareas():
     if os.path.exists("tareas.json"):

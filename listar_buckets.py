@@ -12,7 +12,6 @@ def verificar_o_crear_bucket(nombre_bucket, region="us-east-1"):
         error_code = int(e.response["Error"]["Code"])
         if error_code == 404:
             print(f"ℹ️ El bucket '{nombre_bucket}' no existe. Creando...")
-
             if region == "us-east-1":
                 # en us-east-1 NO se especifica configuración
                 s3.create_bucket(Bucket=nombre_bucket)
