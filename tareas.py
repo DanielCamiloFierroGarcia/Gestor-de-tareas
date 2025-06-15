@@ -1,4 +1,4 @@
-from utilidades import pedir_entero, guardar_tareas
+from utilidades import pedir_entero, guardar_tareas, descargar_backup
 
 def ver_tareas(tareas):
     if not tareas:
@@ -60,3 +60,9 @@ def editar_tarea(tareas):
         guardar_tareas(tareas)
     else:
         print("Numero invalido")
+        
+def descargar_backups_desde_s3():
+    fecha = input("📅 Fecha del backup (YYYY-MM-DD): ").strip()
+    confirmar = input("⚠️ Esto sobrescribirá tu archivo local. ¿Continuar? (s/n): ")
+    if confirmar.lower() == "s":
+        descargar_backup(fecha, "tareas.json")

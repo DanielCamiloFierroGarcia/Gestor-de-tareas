@@ -1,29 +1,19 @@
-from utilidades import pedir_entero, cargar_tareas
+from utilidades import pedir_entero, cargar_tareas, mostrar_menu
 
 from tareas import (
     ver_tareas,
     agregar_tareas,
     completar_tarea, 
     eliminar_tarea,
-    editar_tarea
+    editar_tarea,
+    descargar_backups_desde_s3
 )
 
 tareas = cargar_tareas()
-
-
-def mostrar_menu():
-    print("\n--- Gestor de Tareas ---")
-    print("1. Ver tareas")
-    print("2. Agregar tarea") 
-    print("3. Marcar tarea como completada")
-    print("4. Eliminar tarea")
-    print("5. Editar tarea")
-    print("6. Salir")     
-
-
+  
 while True:
     mostrar_menu()
-    opcion = pedir_entero("Elige una opcion (1-6): ")
+    opcion = pedir_entero("Elige una opcion (1-7): ")
     if opcion == 1:
         ver_tareas(tareas)
     elif opcion == 2:
@@ -35,6 +25,8 @@ while True:
     elif opcion == 5:
         editar_tarea(tareas)
     elif opcion == 6:
+        descargar_backups_desde_s3()
+    elif opcion == 7:
         print("Chao")
         break
     else:

@@ -5,4 +5,4 @@ Hasta el momento:
 - Agregar/modificar/eliminar tareas
 - Marcar tarea como completada
 - Almacenar tareas registradas en archivo JSON
-- Crear backup del archivo en AWS: S3
+- Crear backup del archivo en AWS: S3 y descargar dicho el descargar backup
