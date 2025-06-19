@@ -1,1 +1,44 @@
-[{"nombre": "nations league", "completada": false}, {"nombre": "mundial de clubes", "completada": true}, {"nombre": "bodoke", "completada": true}, {"nombre": "Cocola", "completada": true}, {"nombre": "MOvie", "completada": true}, {"nombre": "Harry Potter", "completada": false}, {"nombre": "Check", "completada": true}]
+[
+ {
+  "nombre": "nations league",
+  "completada": false
+ },
+ {
+  "nombre": "mundial de clubes",
+  "completada": true
+ },
+ {
+  "nombre": "bodoke",
+  "completada": true
+ },
+ {
+  "nombre": "Cocola",
+  "completada": true
+ },
+ {
+  "nombre": "MOvie",
+  "completada": true
+ },
+ {
+  "nombre": "Harry Potter",
+  "completada": false
+ },
+ {
+  "nombre": "Check",
+  "completada": true
+ },
+ {
+  "nombre": "Jugar",
+  "completada": false
+ },
+ {
+  "nombre": "a",
+  "completada": false
+ },
+ {
+  "tipo": "TareaConFecha",
+  "nombre": "Trabajar",
+  "completada": false,
+  "fecha_limite": "2025-06-20"
+ }
+]

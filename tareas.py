@@ -1,4 +1,5 @@
 from utilidades import pedir_entero, guardar_tareas, descargar_backup
+from clases.tareas_con_fecha import TareaConFecha
 
 def ver_tareas(tareas):
     if not tareas:
@@ -66,3 +67,11 @@ def descargar_backups_desde_s3():
     confirmar = input("⚠️ Esto sobrescribirá tu archivo local. ¿Continuar? (s/n): ")
     if confirmar.lower() == "s":
         descargar_backup(fecha, "tareas.json")
+        
+def agregar_tarea_con_fecha(tareas):
+    nombre = input("📝 Nombre de la tarea: ")
+    fecha = input("📅 Fecha límite (YYYY-MM-DD): ")
+    tarea = TareaConFecha(nombre, fecha)
+    tareas.append(tarea)
+    guardar_tareas(tareas)
+    print("✅ Tarea con fecha agregada.")

@@ -9,3 +9,10 @@ class TareaConFecha(Tarea):
         estado = "✅" if self.completada else "❌"
         print(f"{self.nombre} - {estado} - Fecha límite: {self.fecha_limite}")
         
+    def to_dict(self):
+        return{
+            "tipo": "TareaConFecha",
+            "nombre": self.nombre,
+            "completada": self.completada,
+            "fecha_limite": self.fecha_limite
+        }

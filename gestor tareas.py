@@ -10,14 +10,15 @@ from tareas import (
     completar_tarea,
     eliminar_tarea,
     editar_tarea,
-    descargar_backups_desde_s3
+    descargar_backups_desde_s3, 
+    agregar_tarea_con_fecha
 )
 
 tareas = cargar_tareas()
   
 while True:
     mostrar_menu()
-    opcion = pedir_entero("Elige una opcion (1-7): ")
+    opcion = pedir_entero("Elige una opcion (1-8): ")
     if opcion == 1:
         ver_tareas(tareas)
     elif opcion == 2:
@@ -31,19 +32,8 @@ while True:
     elif opcion == 6:
         descargar_backups_desde_s3()
     elif opcion == 7:
-        #solo pruebas de integracion de clases
-        # Instancia normal
-        t1 = Tarea("Estudiar Python")
-        t1.mostrar()
-
-        # Instancia con fecha
-        t2 = TareaConFecha("Entregar informe", "2025-07-01")
-        t2.mostrar()
-
-        # Marcar como completada
-        t2.completada = True
-        t2.mostrar()
-        #Borrar todo este segmento
+        agregar_tarea_con_fecha(tareas)
+    elif opcion == 8:
         print("Chao")
         break
     else:

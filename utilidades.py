@@ -10,7 +10,8 @@ def mostrar_menu():
     print("4. Eliminar tarea")
     print("5. Editar tarea")
     print("6. Restaurar tareas desde backup")
-    print("7. Salir")   
+    print("7. Agregar tarea con fecha límite")
+    print("8. Salir")   
 
 def pedir_entero(mensaje):
     while True:
@@ -20,9 +21,16 @@ def pedir_entero(mensaje):
         except ValueError:
             print("Por favor escribe un numero valido")
             
-def guardar_tareas(tareas):
+def guardar_tareas(tareas, archivo="tareas.json"):
+    datos = []
+    for tarea in tareas:
+        if hasattr(tarea, "to_dict"):
+            datos.append(tarea.to_dict())
+        else:
+            datos.append(tarea)
+    
     with open("tareas.json", "w") as archivo:
-        json.dump(tareas, archivo)  
+        json.dump(datos, archivo, indent=1)  
     subir_backup("tareas.json")
         
 def cargar_tareas():
