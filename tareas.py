@@ -1,5 +1,6 @@
-from utilidades import pedir_entero, guardar_tareas, descargar_backup
+from utils.utilidades import pedir_entero, guardar_tareas, descargar_backup
 from clases.tareas_con_fecha import TareaConFecha
+from clases.modelo_tarea import Tarea
 
 def ver_tareas(tareas):
     for i, t in enumerate(tareas):
@@ -7,10 +8,7 @@ def ver_tareas(tareas):
             
 def agregar_tareas(tareas):
     nombre = input("Escribe el nombre de la nueva tarea: ")
-    tarea = {
-        "nombre":nombre,
-        "completada":False
-    }
+    tarea = Tarea(nombre)
     tareas.append(tarea)
     print("Tarea agregada")
     guardar_tareas(tareas)
@@ -68,3 +66,22 @@ def agregar_tarea_con_fecha(tareas):
     tareas.append(tarea)
     guardar_tareas(tareas)
     print("✅ Tarea con fecha agregada.")
+    
+def mostrar_tareas_filtradas(tareas, estado=None):
+    print(type(tareas[0]))
+    """
+    Muestra tareas dependiendo del estado.
+    - estado = None => todas
+    - estado = True => solo completadas
+    - estado = False => solo pendientes
+    """
+    tareas_filtradas = (
+        tareas if estado is None else [t for t in tareas if t.completada == estado]
+    )
+    
+    if not tareas_filtradas:
+        print("📭 No hay tareas para mostrar.")
+        return
+    for i, tarea in enumerate(tareas_filtradas, 1):
+        estado_icono = "✅" if tarea.completada else "❌"
+        print(f"{i}. {tarea.nombre} {estado_icono}")
