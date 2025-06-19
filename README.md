@@ -18,4 +18,5 @@ python "gestor tareas".py
 ## Requisitos
 
 - Python 3.10+
-- boto3 (para respaldo en AWS)
+- boto3 (para respaldo en AWS) -> Intalar con pip install boto3
+- Cambiar en s3_utils.py el nombre del bucket en S3

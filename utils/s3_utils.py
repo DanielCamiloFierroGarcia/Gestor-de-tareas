@@ -5,7 +5,7 @@ from botocore.exceptions import ClientError
 
 # Cliente S3 global
 s3 = boto3.client("s3")
-BUCKET_NAME = "daniel-bucket-demo-curso"  # Cambia si usas otro
+BUCKET_NAME = "nombre-de-tu-bucket"  # Cambia si usas otro
 
 def bucket_existe(nombre_bucket):
     try:
