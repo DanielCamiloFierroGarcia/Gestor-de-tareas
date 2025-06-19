@@ -6,3 +6,4 @@ Hasta el momento:
 - Marcar tarea como completada
 - Almacenar tareas registradas en archivo JSON
 - Crear backup del archivo en AWS: S3 y descargar dicho el descargar backup
+- Creacion de clases para agregar POO al proyecto
