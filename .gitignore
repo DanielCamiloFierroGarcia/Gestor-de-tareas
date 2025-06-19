@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+logs/
+.env
+tareas.json
+claves_aws.json
