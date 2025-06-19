@@ -3,9 +3,9 @@ class Tarea:
         self.nombre = nombre
         self.completada = False
         
-    def mostrar(self):
+    def mostrar(self, i):
         estado = "✅" if self.completada else "❌"
-        print(f"{self.nombre} - {estado}")
+        print(f"{i+1}. {self.nombre} - {estado}")
         
     def to_dict(self):
         return{

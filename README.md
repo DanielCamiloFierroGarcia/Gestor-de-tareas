@@ -7,3 +7,4 @@ Hasta el momento:
 - Almacenar tareas registradas en archivo JSON
 - Crear backup del archivo en AWS: S3 y descargar dicho el descargar backup
 - Creacion de clases para agregar POO al proyecto
+- Creacion de tareas con fecha y agregar al JSON (pasar de utilizar diccionarios como modelo de datos a objetos tipo clases)

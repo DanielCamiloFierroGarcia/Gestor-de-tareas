@@ -1,44 +1,48 @@
 [
  {
-  "nombre": "nations league",
-  "completada": false
+  "tipo": "Tarea",
+  "nombre": "NATIONS LEAGUE",
+  "completada": true
  },
  {
+  "tipo": "Tarea",
   "nombre": "mundial de clubes",
   "completada": true
  },
  {
+  "tipo": "Tarea",
   "nombre": "bodoke",
   "completada": true
  },
  {
+  "tipo": "Tarea",
   "nombre": "Cocola",
   "completada": true
  },
  {
-  "nombre": "MOvie",
-  "completada": true
- },
- {
+  "tipo": "Tarea",
   "nombre": "Harry Potter",
   "completada": false
  },
  {
+  "tipo": "Tarea",
   "nombre": "Check",
   "completada": true
  },
  {
+  "tipo": "Tarea",
   "nombre": "Jugar",
   "completada": false
  },
  {
+  "tipo": "Tarea",
   "nombre": "a",
   "completada": false
  },
  {
   "tipo": "TareaConFecha",
   "nombre": "Trabajar",
-  "completada": false,
+  "completada": true,
   "fecha_limite": "2025-06-20"
  }
 ]

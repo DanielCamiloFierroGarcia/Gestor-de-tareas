@@ -1,6 +1,8 @@
 import json
 import os
 from s3_utils import subir_backup, descargar_backup
+from clases.modelo_tarea import Tarea
+from clases.tareas_con_fecha import TareaConFecha
 
 def mostrar_menu():
     print("\n--- Gestor de Tareas ---")
@@ -34,11 +36,25 @@ def guardar_tareas(tareas, archivo="tareas.json"):
     subir_backup("tareas.json")
         
 def cargar_tareas():
-    if os.path.exists("tareas.json"):
-        try:
-            with open("tareas.json", "r") as archivo:
-                return json.load(archivo)
-        except json.decoder.JSONDecodeError:
-            print("El archivo 'tareas.json' esta dañado o mal formateado")
-    else:
-        return []
+    tareas = []
+    if not os.path.exists("tareas.json"):
+        return tareas
+
+    with  open("tareas.json", "r") as archivo:
+        datos = json.load(archivo)
+        
+        for item in datos:
+            tipo = item.get("tipo", "Tarea")
+            nombre = item.get("nombre")
+            completada = item.get("completada", False)
+            
+            if tipo == "TareaConFecha":
+                fecha_limite = item.get("fecha_limite", "")
+                tarea = TareaConFecha(nombre, fecha_limite)
+            else:
+                tarea = Tarea(nombre)
+    
+            tarea.completada = completada
+            tareas.append(tarea)
+    return tareas
+    

@@ -5,9 +5,9 @@ class TareaConFecha(Tarea):
         super().__init__(nombre)
         self.fecha_limite = fecha_limite
         
-    def mostrar(self):
+    def mostrar(self, i):
         estado = "✅" if self.completada else "❌"
-        print(f"{self.nombre} - {estado} - Fecha límite: {self.fecha_limite}")
+        print(f"{i+1}. {self.nombre} - {estado} (Límite: {self.fecha_limite})")
         
     def to_dict(self):
         return{

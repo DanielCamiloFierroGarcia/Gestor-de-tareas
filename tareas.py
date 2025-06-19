@@ -2,15 +2,8 @@ from utilidades import pedir_entero, guardar_tareas, descargar_backup
 from clases.tareas_con_fecha import TareaConFecha
 
 def ver_tareas(tareas):
-    if not tareas:
-        print("No hay tareas")
-    else:
-        for i, t in enumerate(tareas):
-            if t["completada"]:
-                estado = "✅"
-            else: 
-                estado = "❌"
-            print(f"{i+1}. {t['nombre']} - {estado}") 
+    for i, t in enumerate(tareas):
+        t.mostrar(i)        
             
 def agregar_tareas(tareas):
     nombre = input("Escribe el nombre de la nueva tarea: ")
@@ -26,9 +19,9 @@ def completar_tarea(tareas):
     ver_tareas(tareas)
     i = pedir_entero("¿Qué número de tarea quieres marcar como completada? ") - 1
     if 0 <= i <len(tareas):
-        tareas[i]["completada"] = True
-        print("Tarea marcada como completada")
+        tareas[i].completada = True
         guardar_tareas(tareas)
+        print("Tarea marcada como completada")
     else:
         print("Numero invalido")
         
@@ -37,10 +30,10 @@ def eliminar_tarea(tareas):
     i = pedir_entero("Que numero de tarea desea eliminar?: ") -1
     if 0<=i<len(tareas):
         while True:
-            confirmacion = input(f"¿Seguro que quieres eliminar '{tareas[i]['nombre']}'? (s/n): ")
+            confirmacion = input(f"¿Seguro que quieres eliminar '{tareas[i].nombre}'? (s/n): ")
             if confirmacion.lower() == "s":
                 eliminada = tareas.pop(i)
-                print(f"Tarea '{eliminada['nombre']}' eliminada.")
+                print(f"Tarea '{eliminada.nombre}' eliminada.")
                 guardar_tareas(tareas)
                 break
             elif confirmacion.lower() == "n":
@@ -56,7 +49,7 @@ def editar_tarea(tareas):
     i = pedir_entero("Que numero de tarea quieres editar? ")-1
     if 0<=i<len(tareas):
         nuevo_nombre = input("Escribe el nuevo nombre de la tarea: ")
-        tareas[i]["nombre"] = nuevo_nombre
+        tareas[i].nombre = nuevo_nombre
         print("Tarea actualizada")
         guardar_tareas(tareas)
     else:
